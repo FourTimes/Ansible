@@ -1,0 +1,3 @@
+{% for i,k in ansible_default_ipv4.items() %}
+{{ i.ljust(25) }} - {{ k}}
+{% endfor  %}

@@ -1,0 +1,6 @@
+---
+# tasks file for hostDetails
+- name: 'Get host information'
+  template:
+    src: hostDetails.j2
+    dest: /tmp/hostDetails.txt

@@ -1,0 +1,7 @@
+---
+- name: "EC2 Instance Information"
+  hosts: localhost
+  roles:
+  - role: hostDetails
+
+
