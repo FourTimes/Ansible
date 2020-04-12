@@ -1,0 +1,8 @@
+- name: "Get EC2 Instance information"
+  ec2_instance_info:
+    instance_ids: "{{ instance_id }}"
+  register: result
+
+- template:
+    src: info.j2
+    dest: /tmp/ec_information.txt

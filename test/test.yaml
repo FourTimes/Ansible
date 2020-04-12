@@ -1,0 +1,13 @@
+---
+- name: "EC2 Instance Information"
+  hosts: localhost
+  pre_tasks:
+  - ec2_instance_info:
+    register: _result
+  - debug:
+      msg: "{{_result.instances | json_query('[].instance_id[]') }}"
+  roles:
+  - role: test
+    instance_id: "{{ _result.instances | json_query('[].instance_id[]') }}"
+
+
