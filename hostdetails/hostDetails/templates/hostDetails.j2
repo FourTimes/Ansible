@@ -1,3 +1,40 @@
+{% for i,j in ansible_facts.items() %}
+{% if i =='lsb'
+or i == 'selinux' 
+or i == 'lo' 
+or i == 'default_ipv4' 
+or i == 'python' 
+or i == 'apparmor' 
+or i == 'dns' 
+or i == 'default_ipv6'
+or i == 'date_time'
+or i == 'proc_cmdline'
+or i == 'memory_mb'
+or i == 'cmdline'
+or i == 'mounts[0]' %}
+{{i}}
+{% for a,b in j.items()%}
+{{ a.ljust(25) }} - {{ b }}
+{% endfor %}
+{% else %}
+{ {{ i.ljust(25) }} - {{ j }} }
+{% endif %}
+{% endfor %}
+
+
+{% for i, j in ansible_facts.items()  %}
+{% if i == 'memory_mb' %}
+{% for a,b in j.items() %}
+{{a}}
+{% for c, d in b.items() %}
+    {{ c.ljust(25)}} - {{ d }}
+{% endfor %}
+
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+
 {% for i,k in ansible_default_ipv4.items() %}
 {{ i.ljust(25) }} - {{ k}}
-{% endfor  %}
+{% endfor  %}}
