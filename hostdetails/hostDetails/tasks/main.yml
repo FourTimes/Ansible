@@ -4,3 +4,4 @@
   template:
     src: hostDetails.j2
     dest: /tmp/hostDetails.txt
+  delegate_to: localhost

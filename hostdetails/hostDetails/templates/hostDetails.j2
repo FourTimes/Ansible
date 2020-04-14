@@ -1,3 +1,8 @@
+{% for host in play_hosts %}
+{# {{ hostvars[host]['result1']['stdout'] }} #}
+
+Server Name: {{host}}
+
 {% for key,value in ansible_facts.items() %}
 {% if key == 'lsb'
  or key == 'selinux'
@@ -132,30 +137,7 @@ or key == 'all_ipv4_addresses' %}
 {% for c, d in a.items() %}
   {{c.ljust(23)}} - {{d}}
 {% endfor %}
-
 {% endfor %}
 {% endif %}
 {% endfor %}
-
-
-
-{# {% if key == 'lo' 
-or key == 'cmdline' %}
-{{ key }}
-{% for a,b in value.items()%}
-{{ a.ljust(25) }} - {{ b }}
 {% endfor %}
-{% else %}
-{ {{ key.ljust(25) }} - {{ value }} }
-{% endif %}
-{% endfor %} #}
-
-
-{# {% for i, j in ansible_facts.items()  %}
-
-{% endfor %} #}
-
-
-{# {% for i,k in ansible_default_ipv4.items() %}
-{{ i.ljust(25) }} - {{ k}}
-{% endfor  %}} #}

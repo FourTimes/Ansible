@@ -1,6 +1,6 @@
 ---
 - name: "EC2 Instance Information"
-  hosts: localhost
+  hosts: all
   roles:
   - role: hostDetails
 
